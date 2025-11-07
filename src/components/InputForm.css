@@ -1,0 +1,8 @@
+.inputForm {
+  color: red;
+  background-color: #f6f5f3;
+  min-height: 100vh;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 25vw;
+}
