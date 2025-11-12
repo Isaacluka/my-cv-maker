@@ -1,0 +1,55 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ }
+ 
+.mainPage {
+  color: red;
+  flex: 1;
+  background-color: #efeeec;
+  display: inline-flex; 
+  flex-direction: column;
+  padding: 0px;
+  min-height: 100vh;
+  /* position: relative; */
+  justify-content: center;
+  align-items: center;
+}
+
+.cvPage {
+  height: 600px;
+  width: 424px;
+  justify-items: center;
+  background-color: #fdfdfa;
+}
+.cvHeader{
+  height: 15%;
+  width: 100%;
+  background-color: #dbefff;  
+  padding-top: 10px;
+}
+.name{
+  justify-self: center;
+  font-size: 28px;
+  margin-top: 10px;
+  font-weight: 400;
+}
+.email{
+  font-size: 10px;
+
+}
+
+img{
+  filter: brightness(100%) saturate(0%) invert(99%) sepia(1%) saturate(100%) hue-rotate(20deg);
+  color: #fdfdfa;
+  margin-left: 8px;
+}
+.cvBody{
+
+}
+.download{
+  margin-top: 20px;
+  bottom: 10px;
+  color: #fdfdfa;
+}

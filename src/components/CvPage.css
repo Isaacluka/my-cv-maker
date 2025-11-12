@@ -1,8 +1,0 @@
-.cvPage {
-  color: red;
-  background-color: #efeeec;
-  min-height: 100vh;
-  display: inline-flex;
-  flex-direction: column;
-  min-width: 60vw;
-}
