@@ -15,12 +15,18 @@ const ContextProvider = (props) => {
     address: "",
     languages: [],
     skills: [],
+    education: [],
+    experience: []
   });
   
   const [inputValues, setInputValues] = useState({
     languages: "",
     skills: "",
+    education: { institution: "", degree: "", startDate: "", endDate: "" },
+    experience: { company: "", position: "", jobDescription: "", startDate: "", endDate: "" },
   });
+
+  
 
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);

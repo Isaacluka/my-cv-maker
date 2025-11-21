@@ -88,7 +88,11 @@
   font-weight: 100;
   justify-content: center;
 }
-
+.active{
+  color: #f6f5f3;
+  background-color: #403e3e;
+  
+}
 h1, h2, h3 {
   font-family: 'Inter', sans-serif;
   font-weight: 200;
@@ -124,12 +128,17 @@ textarea {
   border: 1px solid #403e3e;
   border-radius: 8px;
   background-color: #fdfdfa;
-  padding-left: 8px;
+  padding: 8px;
 }
-.langAdd{
+.formAdd{
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.formList{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
 .addSubButton {
   color: #2b2b2b;

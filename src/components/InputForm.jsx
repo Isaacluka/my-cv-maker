@@ -30,6 +30,60 @@ const InputForm = () => {
   //   skills: "",
   // });
 
+  const handleEducationChange = (e) => {
+    const { name, value } = e.target;
+    setInputValues((prev) => ({
+      ...prev,
+      education: {
+        ...prev.education,
+        [name]: value
+      }
+    }));
+  };
+
+  const handleAddEducation = () => {
+    const { institution, degree, startDate, endDate } = inputValues.education;
+
+    if (!institution || !degree || !startDate || !endDate) return;
+
+    setFormData((prev) => ({
+      ...prev,
+      education: [...prev.education, inputValues.education]
+    }));
+
+    setInputValues((prev) => ({
+      ...prev,
+      education: { institution: "", degree: "", startDate: "", endDate: "" }
+    }));
+  };
+
+  const handleExperienceChange = (e) => {
+    const { name, value } = e.target;
+    setInputValues((prev) => ({
+      ...prev,
+      experience: {
+        ...prev.experience,
+        [name]: value
+      }
+    }));
+  };
+
+  const handleAddExperience = () => {
+    const { company, position, jobDescription, startDate, endDate } = inputValues.experience;
+
+    if ( !company || !position ||!jobDescription || !startDate || !endDate) return;
+
+    setFormData((prev) => ({
+      ...prev,
+      experience: [...prev.experience, inputValues.experience]
+    }));
+
+    setInputValues((prev) => ({
+      ...prev,
+      experience: {company: "", position: "", jobDescription: "", startDate: "", endDate: "" }
+    }));
+  };
+
   const handleAdd = (field) => {
     const value = inputValues[field].trim();
     if (!value) return;
@@ -134,33 +188,211 @@ const InputForm = () => {
         
 
         {step === 2 && (
+          <>
           <div>
             <h3>Work Experience</h3>
-            <button className="button">Add a position</button>
+            {/* <button className="button">Add a position</button> */}
+            <div className='inputDiv'>
+              <label>Company</label>
+              <input 
+              type="text"
+              name="company"
+              value={inputValues.experience.company}
+              onChange={handleExperienceChange}
+              placeholder='KPMG' />
+            </div>
+
             <div className='inputDiv'>
               <label>Position</label>
               <input 
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
+              type="text"
+              name="position"
+              value={inputValues.experience.position}
+              onChange={handleExperienceChange}
+              placeholder='CEO' />
+            </div>
+
+            <div className='inputDiv'>
+              <label>Job Description</label>
+              <textarea
+              name="jobDescription" 
+              value={inputValues.experience.jobDescription}
+              onChange={handleExperienceChange}
+              placeholder='...' />
+            </div>
+            
+            <div className='inputDiv'>
+              <label>From</label>
+              <input 
+              type="date"
+              name="startDate"
+              value={inputValues.experience.startDate}
+              onChange={handleExperienceChange}
               placeholder='' />
             </div>
             
+            <div className='inputDiv'>
+              <label>To</label>
+              <input 
+              type="date"
+              name="endDate"
+              value={inputValues.experience.endDate}
+              onChange={handleExperienceChange}
+              placeholder='' />
+            </div>
+
+            <div>
+                <button 
+                className="addSubButton"
+                type='button'
+                onClick={handleAddExperience}>
+                  <img src={assets.add} alt="" />
+                </button>
+            </div> 
+
+            <ul>
+              {formData.experience.map((entry, index) => (
+              
+                <li
+                className="eduList"
+                  key={index}>{entry.position}
+                  <button 
+                    className="addSubButton"
+                    type='button'
+                    onClick={() => handleRemove("experience", index)}>
+                  <img src={assets.remove} alt="" />
+                  </button>
+                </li>
+
+                
+              ))}
+            </ul>
           </div>
+        </>
         )}
 
         {step === 3 && (
-          <div>
-            <h3>Education</h3>
+          <>
+            <div>
+              <h3>Education</h3>
+              <div className='inputDiv'>
+                <label>Institution</label>
+                <input 
+                type="text"
+                name='institution'
+                value={inputValues.education.institution}
+                onChange={handleEducationChange}
+                placeholder='University of ...' />
+
+              </div>
+              <div className="inputDiv">
+                <label>Degree</label>                                     
+                <input 
+                type="text"
+                name='degree'
+                value={inputValues.education.degree}
+                onChange={handleEducationChange}
+                placeholder='B.Eng Computer Engineering' />  
+              </div>    
+              <div className='inputDiv'>        
+                <label>From</label>
+                <input 
+                type="date"
+                name='startDate'
+                value={inputValues.education.startDate}
+                onChange={handleEducationChange}
+                />
+              </div>
+
+              <div className='inputDiv'>                  
+                <label>To</label>
+                <input 
+                type="date"
+                name='endDate'
+                value={inputValues.education.endDate}
+                onChange={handleEducationChange}
+                />
+              </div>
+                  <button 
+                  className="addSubButton"
+                  type='button'
+                  onClick={handleAddEducation}>
+                    <img src={assets.add} alt="" />
+                  </button>
+                </div>
+              
             
-          </div>
+
+            <ul>
+              {formData.education.map((entry, index) => (
+              
+                <li
+                className="eduList"
+                  key={index}>{entry.institution}
+                  <button 
+                    className="addSubButton"
+                    type='button'
+                    onClick={() => handleRemove("education", index)}>
+                  <img src={assets.remove} alt="" />
+                  </button>
+                </li>
+
+                
+              ))}
+            </ul>
+
+            
+          </>
         )}
 
         {step === 4 && (
-          <div>
-            <h3>Skills</h3>
+          <>
+            <div>
+              <h3>Skills</h3>
+              <div className='inputDiv'>
+                <div className="formAdd">
+                  <input 
+                  type="text"
+                  name='skills'
+                  value={inputValues.skills}
+                  onChange={(e) =>
+                    setInputValues((prev) => ({
+                      ...prev,
+                      skills: e.target.value,
+                    }))
+                  }
+                  placeholder='Add a skill' />
+                
+                  <button 
+                  className="addSubButton"
+                  type='button'
+                  onClick={() => handleAdd("skills")}>
+                    <img src={assets.add} alt="" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <ul>
+              {formData.skills.map((skill, index) => (
+              
+                <li
+                className="formList"
+                  key={index}>{skill}
+                  <button 
+                    className="addSubButton"
+                    type='button'
+                    onClick={() => handleRemove("skills", index)}>
+                  <img src={assets.remove} alt="" />
+                  </button>
+                </li>
+
+                
+              ))}
+            </ul>
+
             
-          </div>
+          </>
         )}
 
         {step === 5 && (
@@ -169,7 +401,7 @@ const InputForm = () => {
               <h3>Others</h3>
               <div className='inputDiv'>
                 <label>Languages</label>
-                <div className="langAdd">
+                <div className="formAdd">
                   <input 
                   type="text"
                   name='languages'
@@ -194,14 +426,19 @@ const InputForm = () => {
 
             <ul>
               {formData.languages.map((lang, index) => (
+              
                 <li
-                key={index}>{lang}
-                <button 
-              className="addSubButton"
-              type='button'
-              onClick={() => handleRemove("languages", index)}>
-                <img src={assets.remove} alt="" />
-              </button></li>
+                className="formList"
+                  key={index}>{lang}
+                  <button 
+                    className="addSubButton"
+                    type='button'
+                    onClick={() => handleRemove("languages", index)}>
+                  <img src={assets.remove} alt="" />
+                  </button>
+                </li>
+
+                
               ))}
             </ul>
 

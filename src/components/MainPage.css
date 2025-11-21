@@ -31,25 +31,122 @@
 }
 .name{
   justify-self: center;
-  font-size: 28px;
+  font-size: 24px;
   margin-top: 10px;
   font-weight: 400;
 }
-.email{
-  font-size: 10px;
-
+.contact{
+  display: flex;
+  justify-content: space-around;
+  margin: 0 16px 0 8px;
 }
-
-img{
-  filter: brightness(100%) saturate(0%) invert(99%) sepia(1%) saturate(100%) hue-rotate(20deg);
-  color: #fdfdfa;
+.email{
+  display: flex;
+  font-size: 8px;
   margin-left: 8px;
+  gap: 2px;
+}
+.telephone{
+  display: flex;
+  font-size: 8px;
+  margin-left: 8px;
+  gap: 2px;
+}
+.address{
+  display: flex;
+  font-size: 8px;
+  margin-left: 8px;
+  gap: 2px;
+}
+img{
+  filter: invert(28%) sepia(2%) saturate(97%) hue-rotate(314deg) brightness(97%) contrast(87%);
+  color: #fdfdfa;
+  width: 8px;
 }
 .cvBody{
-
+  display: flex;
+  flex-direction: column;
+}
+.cvBody .about{
+  /* border: 1px solid red; */
+  width: 350px;
+  margin-top: 8px;
+  font-size: 8px;
+  overflow: hidden;
+}
+.cvBody .aboutText{
+  white-space: pre-wrap;      
+  word-wrap: break-word;  
+  overflow-wrap: break-word;
+}
+.cvBody h3{
+  /* color: red; */
+  justify-self: center;
+  font-size: 16px;
+  font-weight: 600;
+  
 }
 .download{
   margin-top: 20px;
   bottom: 10px;
   color: #fdfdfa;
 }
+.downloadImg{
+  filter: brightness(100%) saturate(0%) invert(99%) sepia(1%) saturate(100%) hue-rotate(20deg);
+  color: #fdfdfa;
+  width: 16px;
+}
+.education{
+  text-align: left;
+}
+.education h3 {
+  justify-self: left;
+  margin: 12px 0px -10px 0px;
+}
+.institution, .position{
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+.dates{
+  font-size: 8px;
+  align-self: center;
+  justify-self: center;
+}
+.edEntry {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 8px;
+}
+.flexDiv{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: 10px;
+}
+.flexDiv li{
+  font-size: 8px;
+}
+.skills{
+  justify-content: left;
+}
+.skills h3{
+  justify-self: left;
+}
+.languages{
+  justify-items: right;
+}
+.languages h3{
+  justify-self: right;
+}
+/* ul.dash-list {
+  list-style: none;
+  padding-left: 0;
+}
+ul.dash-list li::before {
+  content: "- ";
+} */
+
