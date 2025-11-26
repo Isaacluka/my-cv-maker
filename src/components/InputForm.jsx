@@ -11,7 +11,7 @@ const InputForm = () => {
   // const [about, setAbout] = useState("");
   // const [link, setLink] = useState("");
 
-  const {step, setStep, formData, setFormData, inputValues, setInputValues, nextStep, prevStep} = useContext(Context)
+  const {step, setStep, formData, setFormData, inputValues, setInputValues, nextStep, prevStep, open, setOpen} = useContext(Context)
 
   // const [step, setStep] = useState(1);
   // const [ formData, setFormData ] = useState({
@@ -119,6 +119,7 @@ const InputForm = () => {
     e.preventDefault();
     console.log("Form Sumbitted", formData);
     <Context data={formData} />
+    setOpen(!open)
     //Create a funtion that arranges the formdata unto the cv page
   };
 
@@ -434,6 +435,49 @@ const InputForm = () => {
                     className="addSubButton"
                     type='button'
                     onClick={() => handleRemove("languages", index)}>
+                  <img src={assets.remove} alt="" />
+                  </button>
+                </li>
+
+                
+              ))}
+            </ul>
+
+            <div className='inputDiv'>
+                <label>Awards and Certifications</label>
+                <div className="formAdd">
+                  <input 
+                  type="text"
+                  name='awardCert'
+                  value={inputValues.awardCert}
+                  onChange={(e) =>
+                    setInputValues((prev) => ({
+                      ...prev,
+                      awardCert: e.target.value,
+                    }))
+                  }
+                  placeholder='Add an award or certification' />
+                
+                  <button 
+                  className="addSubButton"
+                  type='button'
+                  onClick={() => handleAdd("awardCert")}>
+                    <img src={assets.add} alt="" />
+                  </button>
+                </div>
+            </div>
+            
+
+            <ul>
+              {formData.awardCert.map((award, index) => (
+              
+                <li
+                className="formList"
+                  key={index}>{award}
+                  <button 
+                    className="addSubButton"
+                    type='button'
+                    onClick={() => handleRemove("awardCert", index)}>
                   <img src={assets.remove} alt="" />
                   </button>
                 </li>

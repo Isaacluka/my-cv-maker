@@ -3,18 +3,23 @@
   margin: 0;
   box-sizing: border-box;
  }
+
+body{
+  overflow: hidden;
+}
  
 .mainPage {
-  color: red;
+  /* color: red; */
   flex: 1;
   background-color: #efeeec;
   display: inline-flex; 
   flex-direction: column;
   padding: 0px;
   min-height: 100vh;
-  /* position: relative; */
+  position: relative;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .cvPage {
@@ -22,6 +27,8 @@
   width: 424px;
   justify-items: center;
   background-color: #fdfdfa;
+  position: absolute;
+  z-index: 3; 
 }
 .cvHeader{
   height: 15%;
@@ -141,6 +148,57 @@ img{
 }
 .languages h3{
   justify-self: right;
+}
+.awardCert h3{
+  justify-self: left;
+  font-size: 16px;
+}
+.awardCert li{
+  font-size: 8px;
+  list-style: decimal;
+}
+.circle-1{
+  /* position: relative; */
+  width: 600px;
+  height: 600px;
+  border: 1px solid #403e3e;
+  border-radius: 50%;
+}
+.circle-2{
+  position: absolute;
+  width: 1200px;
+  height: 1200px;
+  border: 1px solid #403e3e;
+  border-radius: 50%;
+  align-self: right;
+  align-content: center;
+  justify-items: center;
+  bottom: -600px;
+  right: -600px;
+  z-index: 2;
+}
+
+/* .circle-3{
+  /* position: relative; 
+  width: 400px;
+  height: 400px;
+  border: 1px solid #403e3e;
+  border-radius: 35%;
+} */
+.circle-4{
+  position: absolute;
+  width: 1200px;
+  height: 1200px;
+  border: 1px solid #403e3e;
+  /* border-top: transparent;
+  border-left: transparent; */
+  border-radius: 50%;
+  align-self: right;
+  align-content: center;
+  justify-items: center;
+  top: -500px;
+  left: -500px;
+  z-index: 2;
 }
 /* ul.dash-list {
   list-style: none;
