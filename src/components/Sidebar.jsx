@@ -35,7 +35,7 @@ const Sidebar = () => {
           </div>  
         ) : (
               <>
-                <button className='button' onClick={() => setOpen(!open)}>Edit<span className='icon'> <img className='downloadImg' src={assets.download} alt="" /></span></button>
+                <button className='button' onClick={() => setOpen(!open)}>Edit<span className='icon'> <img className='penImg' src={assets.pen} alt="" /></span></button>
 
                 <button className='doneButton download' onClick={downloadCV}>Download<span className='icon'> <img className='downloadImg' src={assets.download} alt="" /></span></button>
               </>

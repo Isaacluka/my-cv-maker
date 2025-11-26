@@ -44,6 +44,18 @@ const MainPage = () => {
                     " "
                   )}
                 </div>
+
+                <div className='email'>
+                  {formData.link ? (
+                    <>
+                      <img src={assets.globe} alt="" />
+                      {formData.link}
+                    </>
+                  ) : (
+                    " "
+                  )}
+                </div>
+
                 <div className='telephone'>
                   {formData.phone ? (
                     <>

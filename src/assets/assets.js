@@ -6,6 +6,8 @@ import download from './download.png'
 import envelope from './envelope.png'
 import telephone from './telephone.png'
 import location from './location.png'
+import globe from './globe.png'
+import pen from './pen.png'
 
 
 export const assets = {
@@ -16,5 +18,7 @@ export const assets = {
     download,
     envelope,
     telephone,
-    location
+    location,
+    globe,
+    pen
 }
